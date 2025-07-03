@@ -29,7 +29,7 @@ const NewsletterSignup = () => {
           <div className="absolute -z-20 h-full w-full inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background"></div>
 
           <h2 className="text-3xl font-display font-extrabold sm:text-4xl text-foreground-strong">
-            Don't Miss an Update. Join the Movement.
+            Dont Miss an Update. Join the Movement.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
             Get exclusive case studies, monetization tips, and early access to

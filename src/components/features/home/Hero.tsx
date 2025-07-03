@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <section
-      className="relative w-full bg-cover bg-card/60 backdrop-blur-md bg-center"
+      className="relative w-full bg-cover bg-blend-mode:overlay bg-center"
       style={{
         aspectRatio: '16/9',
         backgroundImage: 'url(/images/hero.png)',
@@ -25,7 +25,7 @@ export default function Hero() {
         className="object-cover"
         loading="lazy"
       />
-      <div className="relative z-10 flex items-center justify-center h-full px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-16 xl:py-20">
+      <div className="relative z-10 flex items-center justify-center h-full px-4 py-8 sm:px-4 sm:py-4 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-16 xl:py-20">
         <div className="text-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display gradient-text mb-4 sm:mb-6 md:mb-8">
             The Complete Roadmap to Turn Your Code into Cash

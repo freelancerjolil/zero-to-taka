@@ -113,7 +113,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Navbar />
           {/* Main content area with responsive padding and max-width, accessible */}
           <main
-            className="flex-1 px-4 py-6 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[90%] sm:max-w-[85%] md:max-w-4xl lg:max-w-5xl xl:max-w-7xl mx-auto"
+            className="flex lg:px-4 py-6 md:px-8 w-full lg:px-8 lg:max-w-[90%] md:max-w-4xl lg:max-w-5xl xl:max-w-7xl mx-auto"
             aria-label="Main content"
           >
             {children}

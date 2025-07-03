@@ -1,14 +1,20 @@
 'use client';
 
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextComponents } from '@portabletext/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { PortableTextBlock } from 'sanity';
 
-const PortableTextComponent = ({ value }: { value: any[] }) => {
-  const components = {
+interface CodeBlockValue {
+  _type: 'codeBlock';
+  code: string;
+  language: string;
+}
+
+const PortableTextComponent = ({ value }: { value: PortableTextBlock[] }) => {
+  const components: PortableTextComponents = {
     types: {
-      // This is the custom component for our 'codeBlock' schema type
-      codeBlock: ({ value }: { value: { code: string; language: string } }) => {
+      codeBlock: ({ value }: { value: CodeBlockValue }) => {
         const { code, language } = value;
         if (!code) {
           return null;
@@ -18,33 +24,32 @@ const PortableTextComponent = ({ value }: { value: any[] }) => {
             <SyntaxHighlighter
               language={language || 'text'}
               style={vscDarkPlus}
+              showLineNumbers
             >
               {code}
             </SyntaxHighlighter>
           </div>
         );
       },
-      // You can add custom renderers for images, etc. here if needed
     },
-    // Customizing default block elements
     block: {
-      h1: ({ children }: any) => (
+      h1: ({ children }) => (
         <h1 className="text-4xl font-display font-bold my-6">{children}</h1>
       ),
-      h2: ({ children }: any) => (
+      h2: ({ children }) => (
         <h2 className="text-3xl font-display font-bold my-5">{children}</h2>
       ),
-      h3: ({ children }: any) => (
+      h3: ({ children }) => (
         <h3 className="text-2xl font-display font-bold my-4">{children}</h3>
       ),
-      blockquote: ({ children }: any) => (
+      blockquote: ({ children }) => (
         <blockquote className="border-l-4 border-primary pl-4 italic my-6 text-muted-foreground">
           {children}
         </blockquote>
       ),
     },
     marks: {
-      link: ({ children, value }: any) => {
+      link: ({ children, value }) => {
         const rel = !value.href.startsWith('/')
           ? 'noreferrer noopener'
           : undefined;
@@ -53,6 +58,7 @@ const PortableTextComponent = ({ value }: { value: any[] }) => {
             href={value.href}
             rel={rel}
             className="text-primary hover:underline"
+            target="_blank"
           >
             {children}
           </a>

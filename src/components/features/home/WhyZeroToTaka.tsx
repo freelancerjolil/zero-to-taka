@@ -24,7 +24,7 @@ const features = [
 
 const WhyZeroToTaka = () => {
   return (
-    <section className="bg-card py-8 sm:py-24">
+    <section className="bg-card max-w-7xl py-8 sm:py-24">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-display font-extrabold sm:text-4xl">

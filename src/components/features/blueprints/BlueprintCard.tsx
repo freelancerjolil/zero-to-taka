@@ -35,10 +35,10 @@ const BlueprintCard = ({
       <div className="relative flex h-full flex-col bg-card/90 p-6 backdrop-blur-sm transition-colors duration-300 group-hover:bg-card/80">
         <div className="flex-1">
           <p className="mb-2 text-sm font-medium text-primary">{category}</p>
-          <h3 className="text-xl font-display text-[#F8FAFC] font-bold text-card-foreground">
+          <h3 className="text-xl font-display font-bold text-card-foreground">
             {title}
           </h3>
-          <p className="mt-3 text-muted-foreground text-[#CBD5E1] line-clamp-3">
+          <p className="mt-3 text-muted-foreground line-clamp-3">
             {description}
           </p>
         </div>

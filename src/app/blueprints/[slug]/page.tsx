@@ -60,7 +60,7 @@ export default async function SingleBlueprintPage({ params }: PageProps) {
   const readingTime = calculateReadingTime(blueprint.body);
 
   return (
-    <article className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <article className="container mx-auto w-full p-4 max-w-7xl py-8 sm:px-2 lg:px-8">
       {/* Header Section */}
       <div className="mb-12">
         <p className="text-primary font-semibold mb-2">{blueprint.category}</p>
@@ -121,7 +121,7 @@ export default async function SingleBlueprintPage({ params }: PageProps) {
       )}
 
       {/* Body Content */}
-      <div className="prose prose-invert prose-lg max-w-none mx-auto">
+      <div className="prose prose-invert prose-lg w-full container mx-auto">
         {blueprint.body && <PortableTextComponent value={blueprint.body} />}
       </div>
     </article>
