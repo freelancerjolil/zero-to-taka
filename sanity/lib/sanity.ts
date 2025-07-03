@@ -8,8 +8,7 @@ if (!projectId) {
   console.error(
     'Sanity Project ID is not set. Please check your .env.local file.'
   );
-  // In a real production environment, you might want to throw an error
-  // to prevent the application from running without a database connection.
+  // You might want to throw an error in production
   // throw new Error("Sanity Project ID is not configured");
 }
 

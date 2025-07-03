@@ -32,5 +32,5 @@ export interface Blueprint {
   slug: string;
   description: string;
   category: string;
-  // We can add more fields like mainImage, body, etc. later.
+  mainImageUrl?: string; // <-- ADD THIS NEW OPTIONAL PROPERTY
 }

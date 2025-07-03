@@ -26,7 +26,7 @@
 
 1.  **রিপোজিটরিটি ক্লোন করুন:**
     ```bash
-    git clone [https://github.com/YourUsername/zero-to-taka.git](https://github.com/YourUsername/zero-to-taka.git)
+    git clone [https://github.com/freelancerjolil/zero-to-taka.git](https://github.com/freelancerjolil/zero-to-taka)
     ```
 2.  **ডিপেন্ডেন্সি ইনস্টল করুন:**
     ```bash

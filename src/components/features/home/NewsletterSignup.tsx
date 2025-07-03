@@ -21,7 +21,7 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-8 sm:py-24 bg-background">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden rounded-2xl bg-card px-6 py-16 text-center shadow-lg sm:px-16">
           {/* Decorative background elements */}
@@ -35,9 +35,11 @@ const NewsletterSignup = () => {
             Get exclusive case studies, monetization tips, and early access to
             new blueprints delivered straight to your inbox.
           </p>
+
+          {/* --- RESPONSIVE FORM --- */}
           <form
             onSubmit={handleSubmit}
-            className="mx-auto mt-8 flex max-w-md gap-x-4"
+            className="mx-auto items-center mt-8 flex w-full max-w-md flex-col gap-4 sm:flex-row" // Updated for responsiveness
           >
             <label htmlFor="email-address" className="sr-only">
               Email address
@@ -53,7 +55,10 @@ const NewsletterSignup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Button type="submit" className="h-12 px-8 text-md font-bold">
+            <Button
+              type="submit"
+              className=" btn-outline text-[#2DD4BF] btn-sm w-full sm:w-auto"
+            >
               Subscribe
             </Button>
           </form>

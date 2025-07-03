@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/react": "^3.2.1",
     "@radix-ui/react-slot": "^1.2.3",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.96.0",
@@ -20,6 +21,7 @@
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-syntax-highlighter": "^15.6.1",
     "sanity": "^3.96.0",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.3.1"
@@ -32,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
