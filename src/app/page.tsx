@@ -1,7 +1,15 @@
-export default function HomePage() {
+import FeaturedBlueprints from '@/components/features/home/FeaturedBlueprints';
+import Hero from '@/components/features/home/Hero';
+import NewsletterSignup from '@/components/features/home/NewsletterSignup';
+import WhyZeroToTaka from '@/components/features/home/WhyZeroToTaka';
+
+export default function Home() {
   return (
-    <main className="flex items-center justify-center min-h-screen">
-      <h1 className="text-5xl font-bold">জিরো টু টাকা</h1>
-    </main>
+    <div className="min-h-screen">
+      <Hero />
+      <FeaturedBlueprints />
+      <WhyZeroToTaka />
+      <NewsletterSignup />
+    </div>
   );
 }
