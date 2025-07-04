@@ -1,39 +1,63 @@
 @import 'tailwindcss';
 
+/* Design Tokens using Tailwind’s @theme system */
 @theme {
-  --font-sans: 'Inter', 'sans-serif';
-  --font-display: 'Plus Jakarta Sans', 'sans-serif';
-  --font-mono: 'JetBrains Mono', 'monospace';
+  /* Font Families */
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Custom Breakpoints */
   --breakpoint-3xl: 1920px;
-  --color-background: #0f172a;
-  --color-card: #1e293b;
-  --color-secondary: #64748b;
-  --color-border: #334155;
-  --color-foreground: #cbd5e1;
-  --color-muted-foreground: #94a3b8;
-  --color-foreground-strong: #f8fafc;
-  --color-primary-gradient-from: #2dd4bf;
-  --color-primary-gradient-to: #a3e635;
-  --color-card-foreground: #f8fafc;
-  --color-secondary-foreground: #f8fafc;
+
+  /* Colors (Dark-mode-first palette) */
+  --color-background: #0f172a; /* Slate-900 */
+  --color-card: #1e293b; /* Slate-800 */
+  --color-border: #334155; /* Slate-700 */
+  --color-foreground: #cbd5e1; /* Slate-300 */
+  --color-muted-foreground: #94a3b8; /* Slate-400 */
+  --color-foreground-strong: #f8fafc; /* Slate-50 */
+  --color-primary-gradient-from: #2dd4bf; /* Teal-400 */
+  --color-primary-gradient-to: #a3e635; /* Lime-400 */
+  --color-secondary: #64748b; /* Slate-400 */
+  --color-secondary-foreground: #f8fafc; /* Slate-50 */
+  --color-card-foreground: #f8fafc; /* Slate-50 */
+
+  /* Easing */
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
-  /* ... */
 }
 
-@layer theme {
-  :root {
-    --spacing: 0.25rem;
+@layer base {
+  /* Light theme overrides */
+  .light {
+    --color-background: #ffffff;
+    --color-card: #ffffff;
+    --color-border: #e2e8f0;
+    --color-foreground: #0f172a;
+    --color-muted-foreground: #64748b;
+    --color-foreground-strong: #020617;
+    --color-secondary: #334155;
+    --color-secondary-foreground: #f8fafc;
+    --color-card-foreground: #0f172a;
+  }
+
+  /* Apply base styles to the body */
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
-@layer utilities {
-  .mt-8 {
-    margin-top: calc(var(--spacing) * 8);
-  }
-  .w-17 {
-    width: calc(var(--spacing) * 17);
-  }
-  .pr-29 {
-    padding-right: calc(var(--spacing) * 29);
+
+/* Custom reusable UI components */
+@layer components {
+  .gradient-text {
+    background-image: linear-gradient(
+      to right,
+      theme('colors.primary-gradient-from'),
+      theme('colors.primary-gradient-to')
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

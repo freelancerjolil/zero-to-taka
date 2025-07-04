@@ -1,9 +1,11 @@
+// src/app/blueprints/[slug]/page.tsx
 import PortableTextComponent from '@/components/shared/PortableTextComponent';
 import { calculateReadingTime } from '@/lib/reading-time';
 import { client } from '@/lib/sanity';
 import { Blueprint } from '@/types';
 import { Calendar, Clock, UserCircle } from 'lucide-react';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { urlForImage } from '../../../../sanity/lib/image';
 
 // Updated query to fetch author details and publish date
@@ -31,7 +33,7 @@ export async function generateStaticParams() {
 }
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // Updated to reflect params as a Promise
 }
 
 // Define a more robust type for our fetched blueprint data
@@ -40,21 +42,20 @@ type BlueprintPageData = Blueprint & {
   body?: any[];
   publishedAt: string;
   author?: {
-    // Author is now optional
     name: string;
-    image?: string; // Author's image is also optional
+    image?: string;
   };
 };
 
 export default async function SingleBlueprintPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params; // Await params to resolve the Promise
   const blueprint = await client.fetch<BlueprintPageData>(
     GET_SINGLE_BLUEPRINT,
     { slug }
   );
 
   if (!blueprint) {
-    return <div className="text-center py-20">Blueprint not found.</div>;
+    notFound(); // Use Next.js notFound() for 404 handling
   }
 
   const readingTime = calculateReadingTime(blueprint.body);
@@ -73,7 +74,6 @@ export default async function SingleBlueprintPage({ params }: PageProps) {
 
         {/* Author and Meta Info */}
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-          {/* --- FIX: Added a check to see if author exists --- */}
           {blueprint.author && (
             <div className="flex items-center gap-2">
               {blueprint.author.image ? (
@@ -127,3 +127,5 @@ export default async function SingleBlueprintPage({ params }: PageProps) {
     </article>
   );
 }
+
+export const revalidate = 60; // Enable ISR with 60-second revalidation

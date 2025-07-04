@@ -1,4 +1,4 @@
-export const NAV_ITEMS = [
+export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
   { href: '/blueprints', key: 'blueprints', label: 'Blueprints' },
   { href: '/tools', key: 'tools', label: 'Tools' },
